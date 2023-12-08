@@ -85,7 +85,7 @@ function M.pythonFStr()
 	local text = getNodeText(strNode)
 	if text == "" then return end -- don't convert empty strings, user might want to enter sth
 
-	local isFString = text:find("^f")
+	local isFString = text:find("^[(f)(rf)]")
 	local hasBraces = text:find("[^(\\x)]{.-[^%d,]+.-}")
 
 	if not isFString and hasBraces then
