@@ -86,7 +86,7 @@ function M.pythonFStr()
 	if text == "" then return end -- don't convert empty strings, user might want to enter sth
 
 	local isFString = text:find("^f")
-	local hasBraces = text:find("{.-}")
+	local hasBraces = text:find("[^(\\x)]{.-[^%d,]+.-}")
 
 	if not isFString and hasBraces then
 		text = "f" .. text
